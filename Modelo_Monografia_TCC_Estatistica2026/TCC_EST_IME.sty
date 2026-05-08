@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para o curso de Estatística da UFG
+%%
+% Further information about abnTeX2 are available on https://github.com/abntex/abntex2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% OBSERVAÇÃO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Esta customização foi formulada pelo NDE-Estatística-IME/UFG 
+%% É de responsabilidade do(a) discente o cumprimento das Normas de TCC, bem como as normas da ABNT 
+%% e, portanto, fazer as alterações, se necessárias, para adaptação às normas da ABNT vigente.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA TCC do curso de Estatística do IME-UFG
+% ---
+
+\ProvidesPackage{TCCESTIME}[2023/04/18 Criação desta customização do abnTeX2]
+
+% alterando a capa
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \SingleSpacing
+    \ABNTEXchapterfont\Large UNIVERSIDADE FEDERAL DE GOIÁS\linebreak INSTITUTO DE MATEMÁTICA E ESTATÍSTICA\linebreak 
+BACHARELADO EM ESTATÍSTICA
+    
+    \vspace*{1cm}
+    
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \end{center}
+    \vfill
+    
+    \large\imprimirlocal
+
+    \large\imprimirdata
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+
+
+% folha de rosto 
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+\SingleSpacing
+\ABNTEXchapterfont\Large UNIVERSIDADE FEDERAL DE GOIÁS\\INSTITUTO DE MATEMÁTICA E ESTATÍSTICA\\
+BACHARELADO EM ESTATÍSTICA
+    
+    \vspace*{1cm}
+    
+{\ABNTEXchapterfont\large\imprimirautor}
+
+\vspace*{\fill}\vspace*{\fill}
+
+\begin{center}
+\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+\end{center}
+
+\vspace*{\fill}
+
+\abntex@ifnotempty{\imprimirpreambulo}{%
+  \hspace{.45\textwidth}
+  \begin{minipage}{.5\textwidth}
+  \small
+  \SingleSpacing
+  \imprimirpreambulo 
+  \end{minipage}%
+  \vspace*{\fill}
+}%
+
+\vspace*{\fill}
+
+
+{\large\imprimirlocal}
+
+\par
+
+{\large\imprimirdata}
+\vspace*{1cm}
+\end{center}
+}
+
+\makeatother
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA  TCC do curso de Estatística IME-UFG
+% ---

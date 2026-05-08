@@ -1,0 +1,181 @@
+% ---
+% Pacotes básicos
+% --
+\usepackage{times} %{lmodern}	% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}	% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}		% Controle das cores
+\usepackage{graphicx}	% Inclusão de gráficos
+\graphicspath{ {./figuras/} }
+\usepackage{microtype} 	% para melhorias de justificação
+\usepackage{array} %permite o uso de tabelas
+\usepackage{longtable} %permite o uso de tabelas personalizadas
+\usepackage{rotating} %permite rotacionar imagens
+%\usepackage{tikz} %permite o desenho de formas geométricas simples dadas suas características
+\usepackage{TCC_EST_IME} %% Customização da classe abnTeX2 para o TCC da Estatística do IME-UFG
+\usepackage{ragged2e}
+\usepackage{csquotes}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx, epsfig}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{float} %% incompatível com quadros
+\usepackage{listings}
+\usepackage{comment}
+\usepackage{booktabs}
+\usepackage{bm, color}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xypic}
+\usepackage{url}
+\usepackage{icomma} %retirar o espaço que o latex coloca automaticamente após vírgulas
+\usepackage{pdfpages} %incluir páginas de pdf
+
+
+
+
+
+
+%%----------- Pacotes adicionais (do autor):
+%% Adicionar aqui os pacotes adicionais usados
+
+%\usepackage{}
+
+%%----------------------------------------------
+
+
+
+
+
+%%% OUTRAS CONFIGURAÇÕES:
+
+%%-------------------------------------------------------
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+%\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf,
+abnt-emphasize = bf, % destaca o titulo da revista ou livro em negrito;
+abnt-etal-list = 3, % trabalhos com mais de 3 autores recebem et al.,;
+abnt-etal-text = it, % escreve o et al., em italico;
+abnt-and-type = e, % usa o carater '&' no lugar de 'e' para mais de um autor;
+abnt-last-names = abnt, % trata sobrenomes 'estritamente' conforme a ABNT; e
+abnt-repeated-author-omit = no % autores com + de uma entrada recebem '____.'
+]{abntex2cite}
+% ---
+% CONFIGURAÇÕES DE PACOTES
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+%%-------------------------------------------------------
+
+
+
+%%-------------------------------------------------------
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={\@author},
+		pdfkeywords={palavra-chave}{palavra-chave}{palavra-chave},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4}
+\makeatother
+% ---
+
+% ---
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+% ---
+
+% % ---
+% % Possibilita criação de Quadros e Lista de quadros.
+% % Ver https://github.com/abntex/abntex2/issues/176
+% %
+% \newcommand{\quadroname}{Quadro}
+% \newcommand{\listofquadrosname}{Lista de quadros}
+% \newfloat[chapter]{quadro}{loq}{\quadroname}
+% \newlistof{listofquadros}{loq}{\listofquadrosname}
+% \newlistentry{quadro}{loq}{0}
+
+% % configurações para atender às regras da ABNT
+% \setfloatadjustment{quadro}{\centering}
+% \counterwithout{quadro}{chapter}
+% \renewcommand{\cftquadroname}{\quadroname\space}
+% \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+% \setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% % ---
+
+
+% ---
+% Possibilita criação de Lista de símbolos.
+% Ver https://github.com/abntex/abntex2/issues/104
+%
+\makeatletter
+\newcommand\criarsimbolo[2]{%
+  \write\@auxout{\noexpand\@writefile{sbl}{\noexpand\item[#1] #2}}}
+\newcommand\imprimirlistadesimbolos{%
+  \begin{simbolos}
+   \@starttoc{sbl}
+  \end{simbolos}}
+\makeatother
+
+% ---
+% Possibilita criação de Lista de siglas e abreviaturas.
+%
+\makeatletter
+\newcommand\criarsigla[2]{%
+  \write\@auxout{\noexpand\@writefile{sbs}{\noexpand\item[#1] #2}}}
+\newcommand\imprimirlistadesiglas{%
+  \begin{siglas}
+   \@starttoc{sbs}
+  \end{siglas}}
+\makeatother
+
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+%Espaçamento padrão:
+\OnehalfSpacing

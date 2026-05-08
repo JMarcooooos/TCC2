@@ -1,0 +1,265 @@
+%%
+%% Template feito com base no AbnTex2 para o curso de Estatística da UFG
+%% Further information about abnTeX2 are available on https://github.com/abntex/abntex2
+%%https://www.abntex.net.br/
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Modelo de TCC para as seguintes matrizes:
+%% - Matriz de 2009, aprovada em ....
+%% - Matriz de 2019, aprovada em ....
+%%
+%% Data da última atualização: 18 de dezembro de 2025.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% OBSERVAÇÃO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Este modelo foi formulado pelo NDE-Estatística-IME/UFG
+%% É de responsabilidade do(a) discente o cumprimento das Normas de TCC, bem como as normas da ABNT
+%% e, portanto, fazer as alterações, se necessárias, para adaptação às normas da ABNT vigente.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	sumario = tradicional,
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+         %portugues,          % o último idioma é o principal do documento
+	brazil,				% o último idioma é o principal do documento
+    %%%%%%%%%%%%
+        %eek: colocação da opção para o sumario ter formatação tradicional
+        %sumario=tradicional             % título no formato tradicional
+	]{abntex2}
+
+\input{packages}
+
+
+% ----------------------------------------------------------
+% Informações de Lista de Figuras
+% ----------------------------------------------------------
+
+%\addto\captionsbrazil{\renewcommand{\listfigurename}{Lista de figuras}}
+
+% ----------------------------------------------------------
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ----------------------------------------------------------
+\titulo{Título do trabalho em letras minúsculas e sem ponto final: subtítulo se houver}
+\autor{Nome do(a) autor(a)}
+\local{Goiânia}
+\data{Ano}
+\orientador{Nome do(a) orientador(a)}
+%\coorientador{Nome do(a) coorientador(a)}  %% se houver
+\instituicao{%
+  Universidade Federal de Goiás
+  \par
+  Instituto de Matemática e Estatística
+  \par
+  Bacharelado em Estatística}
+\tipotrabalho{Trabalho de Conclusão de Curso (TCC)}
+
+%% matriz 2019
+\preambulo{Trabalho de
+      Conclusão de Curso apresentado ao
+      Curso de  Bacharelado em Estatística da
+      Universidade Federal de Goiás para aprovação no componente curricular
+      TCC, como parte das exigências para a obtenção do título de bacharel em Estatística.\linebreak
+\textbf{Orientador}: \imprimirorientador
+%\linebreak \textbf{Coorientador}: \imprimircoorientador  %% ser houver
+}
+
+% ----------------------------------------------------------
+% Compila o índice
+% ---
+\makeindex
+% ----------------------------------------------------------
+
+
+
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
+\begin{document}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+%espaçamento
+
+% ----------------------------------------------------------
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+%---
+\pretextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Capa (obrigatória)
+%---
+\imprimircapa
+% ----------------------------------------------------------
+%Inserir TECA - Termo de Ciência e de Autorização
+%---
+%\includepdf[pages=-, scale=0.9]{TECA_assinado_FernandoNery.pdf}
+{
+\centerline{Incluir aqui o TECA (arquivo pdf) gerada do processo SEI referente ao TCC.\\}
+%\includepdf[pages=-, scale=0.9]{SEI_5831481_Termo_de_Ciencia_e_de_Autorizacao_TCCG__RI__TECA.pdf}
+\centerline{Acima estão comentados os comandos para tal inclusão.\\ }
+
+\centerline{(Lembre-se de comentar este texto e deixar apenas o arquivo pdf.)}
+}
+% ----------------------------------------------------------
+
+% Folha de rosto (obrigatória)
+% (o * indica que haverá a ficha bibliográfica)
+%---
+\imprimirfolhaderosto
+% ----------------------------------------------------------
+% ----------------------------------------------------------
+% Inserir a ficha bibliografica
+%---
+
+\centerline{Incluir aqui a ficha catalográfica (arquivo pdf) gerada pelo aplicativo da Biblioteca.\\}
+%\includepdf[scale=0.9]{ficha_catalografica.pdf}
+\centerline{Acima estão comentados os comandos para tal inclusão.\\ }
+
+\centerline{(Lembre-se de comentar este texto e deixar apenas o arquivo pdf.)}
+\newpage
+
+% ----------------------------------------------------------% ----------------------------------------------------------
+
+
+
+% ----------------------------------------------------------
+%Inserir errata (caso houver)
+%---
+%\input{capitulos/prett_errata.tex}
+% ----------------------------------------------------------
+
+
+
+% ----------------------------------------------------------
+% Inserir folha de aprovação (obrigatória)
+%---
+%\includepdf[pages=-, scale=0.9]{certidaoAprovacao.pdf}
+{
+\centerline{Incluir aqui a ata de defesa (arquivo pdf) gerada do processo SEI referente ao TCC.\\}
+%\includepdf[pages=-, scale=0.9]{SEI_5808281_Ata_de_Defesa_de_Trabalho_de_Conclusao_de_Curso.pdf}
+\centerline{Acima estão comentados os comandos para tal inclusão.\\ }
+
+\centerline{(Lembre-se de comentar este texto e deixar apenas o arquivo pdf.)}
+\newpage
+}
+% ----------------------------------------------------------
+% Dedicatória/Agradecimentos/Epígrafe (opcionais)
+%---
+\input{capitulos/prett_dedicat.tex}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Resumos (obrigatórios)
+%---
+\input{capitulos/prett_resumos.tex}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Listas (opcionais)
+%---
+%\input{capitulos/prett_listas.tex}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Inserir o Sumário (obrigatório)
+%---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ----------------------------------------------------------
+
+
+
+
+% ----------------------------------------------------------
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+%---
+\textual
+\setcounter{chapter}{1}
+\counterwithout{equation}{chapter}
+% ----------------------------------------------------------
+
+%-----------------------------------------------------
+%% Os títulos do modelo são sugestões, podendo ser alterados.
+%% Introdução e Conclusão são obrigatórios.
+%-----------------------------------------------------
+\input{capitulos/cap0_introducao.tex}
+%-----------------------------------------------------
+\input{capitulos/cap1.tex}
+%-----------------------------------------------------
+\input{capitulos/cap2.tex}
+%-----------------------------------------------------
+\input{capitulos/cap3.tex}
+%-----------------------------------------------------
+\input{capitulos/conclusao.tex}
+%-----------------------------------------------------
+
+
+% ----------------------------------------------------------
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+%---
+\pagestyle{plain}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Referências bibliográficas (obrigatório)
+%---
+
+\bibliographystyle{abntex2-alf_UFG}
+\bibliography{referencias}
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% % Glossário (opcional)
+% % Consulte o manual da classe abntex2 para orientações sobre o glossário.
+% %---
+% \glossary
+% % ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Apêndices (opcional)
+%---
+\input{capitulos/postt_apendices.tex}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% Anexos (opcional)
+%---
+%\input{capitulos/postt_anexos.tex}
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% INDICE REMISSIVO (opcional)
+%---
+\phantompart
+\printindex
+%% para tal, usar no texto o comando \index{palavra a ser indexada}
+% ----------------------------------------------------------
+
+\end{document}

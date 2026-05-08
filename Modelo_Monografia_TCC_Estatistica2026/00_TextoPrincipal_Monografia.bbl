@@ -1,0 +1,43 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Araujo 2018]{araujoclasse}
+\abntrefinfo{Araujo}{Araujo}{2018}
+{ARAUJO, L.~C. \textbf{A classe abntex2: Documentos técnicos e científicos
+  brasileiros compatíveis com as normas ABNT}.
+[S.l.], 2018. Manual de uso da classe abntex2, v.1.9.7. Dispon{\'\i}vel em:
+  \url{http://www.abntex.net.br/}.}
+
+\bibitem[Carvalho \textit{et al.} 2011]{carvalho2011analise}
+\abntrefinfo{Carvalho \textit{et al.}}{Carvalho \textit{et al.}}{2011}
+{CARVALHO, M.~S. \textit{et al.} \textbf{Análise de sobrevivência: teoria e
+  aplicações em saúde}. [S.l.]: SciELO-Editora FIOCRUZ, 2011.}
+
+\bibitem[Colosimo e Giolo 2006]{colosimo2006analise}
+\abntrefinfo{Colosimo e Giolo}{Colosimo; Giolo}{2006}
+{COLOSIMO, E.~A.; GIOLO, S.~R. \textbf{Análise de sobrevivência aplicada}.
+  [S.l.]: Editora Blucher, 2006.}
+
+\bibitem[Deluzio 2016]{FigCurvaAngulos}
+\abntrefinfo{Deluzio}{Deluzio}{2016}
+{DELUZIO, K. \textbf{Biomechanical Data Analysis Techniques}. 2016.
+Dispon{\'\i}vel em:
+  \url{https://me.queensu.ca/People/Deluzio/DataAnalysis.html}. Acesso em:
+  30/01/2019.}
+
+\bibitem[Morettin e Bussab 2017]{morettin2017estatistica}
+\abntrefinfo{Morettin e Bussab}{Morettin; Bussab}{2017}
+{MORETTIN, P.~A.; BUSSAB, W.~O. \textbf{Estatística básica}. São Paulo:
+  Saraiva Educação SA, 2017.}
+
+\bibitem[{R Core Team} 2018]{citacaoR}
+\abntrefinfo{{R Core Team}}{{R Core Team}}{2018}
+{{R Core Team}. \textbf{R: A Language and Environment for Statistical
+  Computing}.
+Vienna, Austria, 2018. Dispon{\'\i}vel em: \url{http://www.R-project.org/}.}
+
+\end{thebibliography}
