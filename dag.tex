@@ -1,0 +1,84 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usetikzlibrary{arrows.meta, positioning}
+
+\begin{document}
+
+    \tikzset{
+        dag node/.style={
+            font=\large\itshape,
+            inner sep=2pt,
+            minimum size=0.5cm
+        },
+        latent/.style={
+            draw,
+            dashed,
+            circle,
+            line width=0.9pt,
+            inner sep=3pt
+        },
+        edge/.style={
+            -{Stealth[scale=0.8]},
+            line width=1pt,
+            shorten >=2pt,
+            shorten <=2pt
+        },
+        bidirected/.style={
+            {Stealth[scale=0.8]}-{Stealth[scale=0.8]},
+            line width=1pt,
+            shorten >=2pt,
+            shorten <=2pt
+        }
+    }
+
+    \begin{tikzpicture}[xscale=2.5, yscale=1.5]
+
+        \node[latent] (v0) at (-1.56,-1.5) {SES};
+        \node[latent] (v1) at (0,-3.89) {CapCult};
+        \node[latent] (v2) at (0,1.24) {Cognicao};
+        \node[dag node] (v3) at (-3, 0.3) {Raca};
+        \node[dag node] (v4) at (-3.14,-3.18) {Mae};
+        \node[dag node] (v5) at (-1.35,-4.13) {Renda};
+        \node[dag node] (v6) at (-2.44,-4.13) {PC};
+        \node[dag node] (v7) at (-2,1) {Sexo};
+        \node[dag node] (v8) at (1.35,2.67) {CH};
+        \node[dag node] (v9) at (-1.35,2.67) {CN};
+        \node[dag node] (v10) at (0.510,3.70) {LC};
+        \node[dag node] (v11) at (-0.510,3.70) {MT};
+        \node[dag node] (v12) at (3.84,1.24) {Zero};
+        \node[latent] (v13) at (3.84,-4.24) {NotaLat};
+        \node[dag node] (v14) at (3,-1.5) {Redacao};
+        \node[dag node] (v15) at (0, -1.5) {Escola};
+        \node[dag node] (v16) at (0,-2.8) {UF};
+
+        \draw [edge] (v3) -- (v0);
+        \draw [edge] (v4) to[bend left=45] (v0);
+        \draw [edge] (v5) -- (v0);
+        \draw [edge] (v0) -- (v6);
+        \draw [edge] (v0) -- (v1);
+        \draw [edge] (v0) -- (v2);
+        \draw [edge] (v1) -- (v12);
+        \draw [edge] (v1) to[bend right=45] (v13);
+        \draw [edge] (v2) -- (v12);
+        \draw [edge] (v2) -- (v13);
+        \draw [edge] (v2) to[bend right=45] (v8);
+        \draw [edge] (v2) to[bend left=45] (v9);
+        \draw [edge] (v2) -- (v10);
+        \draw [edge] (v2) -- (v11);
+        \draw [edge] (v12) to[bend left=45] (v14);
+        \draw [edge] (v13) to[bend right=45] (v14);
+        \draw [edge] (v15) -- (v2);
+        \draw [edge] (v15) -- (v13);
+        \draw [edge, dashed] (v16) -- (v15);
+        \draw [edge] (v0) -- (v15);
+
+        % Sexo Paths (The new ones)
+        \draw [edge] (v7) -- (v13);
+        \draw [edge] (v7) to[bend right=20] (v12);
+        \draw [edge] (v7) to[bend right=20] (v2);
+        \draw [edge] (v7) -- (v1);
+
+
+
+    \end{tikzpicture}
+
+\end{document}

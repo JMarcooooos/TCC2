@@ -2,46 +2,46 @@
 \usetikzlibrary{arrows.meta, positioning}
 
 \begin{document}
-	
+
 	\tikzset{
 		dag node/.style={
-			font=\large\itshape, 
-			inner sep=2pt, 
+			font=\large\itshape,
+			inner sep=2pt,
 			minimum size=0.5cm
 		},
 		latent/.style={
-			draw, 
-			dashed, 
-			circle, 
-			line width=0.9pt, 
+			draw,
+			dashed,
+			circle,
+			line width=0.9pt,
 			inner sep=3pt
 		},
 		edge/.style={
-			-{Stealth[scale=0.8]}, 
-			line width=1pt, 
-			shorten >=2pt, 
+			-{Stealth[scale=0.8]},
+			line width=1pt,
+			shorten >=2pt,
 			shorten <=2pt
 		},
 		bidirected/.style={
-			{Stealth[scale=0.8]}-{Stealth[scale=0.8]}, 
-			line width=1pt, 
-			shorten >=2pt, 
+			{Stealth[scale=0.8]}-{Stealth[scale=0.8]},
+			line width=1pt,
+			shorten >=2pt,
 			shorten <=2pt
 		}
 	}
-	
+
 	\begin{tikzpicture}
 		\node[dag node] (X) at (-2, -2) {X};
-		\node[latent]   (Z) at (1, 0.8) {Z}; 
+		\node[latent]   (Z) at (1, 0.8) {Z};
 		\node[dag node] (Y) at (3, -2) {Y};
 		\node[dag node] (Z*) at (1, 3) {Z*};
-		
+
 		\draw[edge] (X) -- (Y);
 		\draw[edge] (X) -- (Z);
 		\draw[edge] (Z) -- (Z*);
-		
+
 		\draw[bidirected, dashed] (Y) to[bend right=55] (Z);
-		
+
 	\end{tikzpicture}
-	
+
 \end{document}
