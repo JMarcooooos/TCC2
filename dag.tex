@@ -32,6 +32,7 @@
         edgehier/.style={
             -{Stealth[scale=0.8]},
             draw=MeuAzul,
+            text=MeuAzul,
             line width=1pt,
             shorten >=2pt,
             shorten <=2pt
@@ -50,57 +51,62 @@
             font=\large\itshape,
             line width=0.9pt,
             inner sep=4pt
+        },
+        inactive/.style={
+        draw=red!75!black,
+        text=red!75!black,
+        dashed,
+        line width=1pt,
+        -{Stealth[scale=0.8]},
+        shorten >=2pt,
+        shorten <=2pt
         }
     }
 
     \begin{tikzpicture}[xscale=2.5, yscale=1.5]
 
-% Background socioeconômico
-\node[dag node] (v41) at (-5,-3.2) {Esc. Mãe};
-\node[dag node] (v6)  at (-3.5,-4.3) {Raça};
-\node[dag node] (v5)  at (-1.8,-4.3) {Renda};
+    \node[dag node] (v41) at (-5,-3.2) {Esc. Mãe};
+    \node[dag node] (v6)  at (-3.5,-4.3) {Raça};
+    \node[dag node] (v5)  at (-1.8,-4.3) {Renda};
+    \node[latent] (v0) at (-3.4,-1.8) {C.Sóc.Ec.};
+    \node[dag node] (v31) at (-5.2,-1.0) {Internet};
+    \node[dag node] (v3)  at (-5.0,0.6) {PC};
+    \node[dag node] (v7)  at (-3.5,1.2) {Sexo};
+    \node[dag node] (v15) at (0,-1.8) {Tipo Escola};
+    \node[dag node] (v16) at (0,-3.3) {UF};
+    \node[latent] (v2) at (0,1.2) {Hab. Lat.};
+    \node[dag node] (v9)  at (-2.4,3.2) {CN};
+    \node[dag node] (v11) at (-0.8,4.2) {MT};
+    \node[dag node] (v10) at (0.8,4.2) {LC};
+    \node[dag node] (v8)  at (2.4,3.2) {CH};
 
-% Estrutura socioeconômica central
-\node[latent] (v0) at (-3.4,-1.8) {C.Sóc.Ec.};
+    \node[dag node] (v12) at (3.5,1.2) {Zero};
+    \node[dag node] (consequencia) at (3.5,2.6) {Status Redação};
 
-% Variáveis associadas
-\node[dag node] (v31) at (-5.2,-1.0) {Internet};
-\node[dag node] (v3)  at (-5.0,0.6) {PC};
-\node[dag node] (v7)  at (-3.5,1.2) {Sexo};
+    \node[deterministic] (v_comp) at (3.5,-4.3) {$\left[C_1, C_2, C_3, C_4, C_5\right]$};
 
-% Escola
-\node[dag node] (v15) at (0,-1.8) {Dep. Escola};
-\node[dag node] (v16) at (0,-3.3) {UF};
+    \node[varresposta] (v14) at (3.5,-1.8) {Nota Redação ENEM};
 
-% Habilidade latente central (Cognição Objetivas)
-\node[latent] (v2) at (0,1.2) {Hab. Lat.};
-
-% Indicadores objetivas
-\node[dag node] (v9)  at (-2.4,3.2) {CN};
-\node[dag node] (v11) at (-0.8,4.2) {MT};
-\node[dag node] (v10) at (0.8,4.2) {LC};
-\node[dag node] (v8)  at (2.4,3.2) {CH};
-
-% Hurdle
-\node[dag node] (v12) at (3.5,1.2) {Zero};
-
-% Vetor de competências (Modelo SUR Ordinal)
-\node[deterministic] (v_comp) at (3.5,-4.3) {$\left[C_1, C_2, C_3, C_4, C_5\right]$};
-
-% Resposta principal (Soma Determinística + Hurdle)
-\node[varresposta] (v14) at (3.5,-1.8) {Nota Redação ENEM};
-
-        % Estrutura SES
-        \draw [edge] (v0) -- (v3);
+        % Estrutura Sócio Economica
+        \draw [inactive] (v0) -- node[midway,
+        above,
+        sloped,
+        fill=white,
+        opacity=0.9,
+        text opacity=1,
+        inner sep=1.5pt] {\scriptsize Fora de Uso} (v3);
         \draw [edge] (v41) to[bend left=45] (v0);
         \draw [edge] (v5) -- (v0);
         \draw [edge] (v6) -- (v0);
         \draw [edge] (v6) -- (v5);
-        \draw [edge] (v0) -- (v31);
-        %\draw [bidirected, dashed] (v31) to [bend left=30] (v3);
-        %\draw [bidirected, dashed] (v41) to[bend right=80, looseness=1.7](v5);
+        \draw [inactive] (v0) -- node[midway,
+        above,
+        sloped,
+        fill=white,
+        opacity=0.9,
+        text opacity=1,
+        inner sep=1.5pt] {\scriptsize Fora de Uso} (v31);
 
-        % Caminhos Causa -> Cognição
         \draw [edge] (v0) -- (v2);
         \draw [edge] (v15) -- (v2);
         \draw [edge] (v7) -- (v2);
@@ -109,16 +115,20 @@
         \draw [edge] (v2) -- (v10);
         \draw [edge] (v2) -- (v11);
 
-        % Escola e UF
-        \draw [edgehier, dashed] (v16) -- (v15);
+
+        \draw [edgehier, dashed] (v16) -- node[midway,
+        above,
+        sloped,
+        fill=white,
+        opacity=0.9,
+        text opacity=1,
+        inner sep=1.5pt] {\scriptsize Amostragem} (v15);
         \draw [edge] (v0) -- (v15);
 
-        % O MODELO SUR: Influências diretas nas Competências
         \draw [edge] (v2) to[bend right=10] (v_comp);
         \draw [edge] (v15) -- (v_comp);
         \draw [edge] (v0) to[bend right=25] (v_comp);
 
-        % O HURDLE: Influências no Zero
         \draw [edge] (v2) -- (v12);
         \draw [edge] (v15) -- (v12);
         \draw [edge] (v0) to[bend left=15] (v12);
@@ -126,6 +136,9 @@
         % Convergência para a Nota Final
         \draw [edge] (v12) to[bend left=15] (v14);
         \draw [edge] (v_comp) to[bend right=15] (v14);
+
+        % Pos Modelagem
+        \draw [edge] (v12) -- (consequencia);
 
     \end{tikzpicture}
 
